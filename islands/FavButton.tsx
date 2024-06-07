@@ -1,4 +1,4 @@
-import { FunctionComponent } from "https://esm.sh/v128/preact@10.19.6/src/index.js";
+import { FunctionComponent } from "preact";
 import { userApi, VideoType } from "../types.ts";
 import { useState } from "preact/hooks";
 
@@ -11,9 +11,7 @@ export const FavButton: FunctionComponent<{ video: VideoType, user: userApi }> =
         `https://videoapp-api.deno.dev/fav/${user.id}/${video.id}`,
         {
           method: "POST",
-          headers: {
-            "Contente-Type": "application/json",
-          },
+          
         },
       );
       if (data.status === 200) {

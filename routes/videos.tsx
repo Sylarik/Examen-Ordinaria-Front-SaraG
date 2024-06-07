@@ -2,7 +2,7 @@ import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import { LoginForm } from "../components/LoginForm.tsx";
 import jwt from "jsonwebtoken";
 import { setCookie } from "$std/http/cookie.ts";
-import re from "https://esm.sh/v135/preact-render-to-string@6.3.1/X-ZS8q/denonext/preact-render-to-string.mjs";
+
 import { RegisterForm } from "../components/RegisterForm.tsx";
 import { Videos } from "../components/Videos.tsx";
 import { userApi } from "../types.ts";

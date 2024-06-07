@@ -1,9 +1,12 @@
-import { FunctionComponent } from "https://esm.sh/v128/preact@10.19.6/src/index.js";
+import { FunctionComponent } from "preact";
 
-export const LoginForm: FunctionComponent = () => {
+export const LoginForm: FunctionComponent<{message: string}> = ({message}) => {
   return (
     <div class="login-container">
       <h2>Login</h2>
+      {message && 
+        <p class="error-message">{message}</p>
+      }
       <form method="POST" action="/login">
         <label for="email">Email</label>
         <input type="text" id="email" name="email" required />

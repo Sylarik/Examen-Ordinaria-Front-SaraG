@@ -1,9 +1,12 @@
-import { FunctionComponent } from "https://esm.sh/v128/preact@10.19.6/src/index.js";
+import { FunctionComponent } from "preact";
 
-export const RegisterForm: FunctionComponent = () => {
+export const RegisterForm: FunctionComponent<{message: string}> = ({message}) => {
   return (
     <div class="register-container">
       <h2>Register</h2>
+      {message && 
+        <p class="error-message">{message}</p>
+      }
       <form action="/register" method="POST">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" required />

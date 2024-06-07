@@ -1,4 +1,4 @@
-import { FunctionComponent } from "https://esm.sh/v128/preact@10.19.6/src/index.js";
+import { FunctionComponent } from "preact";
 import {userApi} from "../types.ts"
 import { Logout } from "../islands/Logout.tsx";
 

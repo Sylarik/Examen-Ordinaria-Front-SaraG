@@ -1,4 +1,4 @@
-import { FreshContext, Handlers, LayoutConfig } from "$fresh/server.ts";
+import { FreshContext, Handlers, LayoutConfig, PageProps } from "$fresh/server.ts";
 import { LoginForm } from "../components/LoginForm.tsx";
 import jwt from "jsonwebtoken"
 import {setCookie} from "$std/http/cookie.ts"
@@ -26,8 +26,12 @@ export const handler: Handlers = {
 
         })
         if(response.status !== 200){
-            return ctx.render()
+            return ctx.render({
+                message: "Incorrect credentials or user does not exist"
+            })
         }
+
+        
 
         const data = await response.json()
         const JWT_SECRET = Deno.env.get("JWT_SECRET") || "patata"
@@ -60,10 +64,10 @@ export const handler: Handlers = {
     }
 }
 
-export default function Page () {
+export default function Page (props: PageProps) {
     return (
         <>
-            <LoginForm/>
+            <LoginForm message={props.data?.message}/>
         </>
         
         

@@ -1,9 +1,9 @@
-import { FunctionComponent } from "https://esm.sh/v128/preact@10.19.6/src/index.js";
+import { FunctionComponent } from "preact";
 import { VideoType } from "../types.ts";
 
 export const Logout: FunctionComponent = () => {
     const borrarCookie = () => {
-        document.cookie = "/auth;"
+        document.cookie = "auth=; path=/";
         return
     }
     return (

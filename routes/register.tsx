@@ -1,4 +1,4 @@
-import { FreshContext, Handlers, LayoutConfig } from "$fresh/server.ts";
+import { FreshContext, Handlers, LayoutConfig, PageProps } from "$fresh/server.ts";
 import jwt from "jsonwebtoken";
 import { setCookie } from "$std/http/cookie.ts";
 import { RegisterForm } from "../components/RegisterForm.tsx";
@@ -15,7 +15,7 @@ export const handler: Handlers = {
     const password = form.get("password")?.toString();
     const name = form.get("name")?.toString();
 
-    const response = await fetch(`https://videoapp-api.deno.dev/checkuser`, {
+    const response = await fetch(`https://videoapp-api.deno.dev/register`, {
       method: "POST",
       headers: {
         "Contente-Type": "application/json",
@@ -27,7 +27,9 @@ export const handler: Handlers = {
       }),
     });
     if (response.status !== 200) {
-      return ctx.render();
+        return ctx.render({
+            message: "Email ya utilizado"
+        })
     }
 
     const data = await response.json();
@@ -63,10 +65,10 @@ export const handler: Handlers = {
   },
 };
 
-export default function Page() {
+export default function Page(props: PageProps) {
   return (
     <>
-      <RegisterForm />
+      <RegisterForm message={props.data?.message}/>
     </>
   );
 }
