@@ -1,5 +1,5 @@
 import { FunctionComponent } from "preact";
-import { VideoType } from "../types.ts";
+
 
 export const Logout: FunctionComponent = () => {
     const borrarCookie = () => {

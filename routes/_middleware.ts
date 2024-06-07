@@ -22,7 +22,7 @@ export const handler = async (req: Request, ctx: FreshContext<userApi>) => {
     });
   }
 
-  const payload = jwt.verify(auth, Deno.env.get("JWT_SECRET") || "patata");
+  const payload = jwt.verify(auth, Deno.env.get("JWT_SECRET"));
   if (!payload) {
     return new Response("", {
       status: 307,

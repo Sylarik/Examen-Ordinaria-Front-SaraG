@@ -1,9 +1,4 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
-import { LoginForm } from "../components/LoginForm.tsx";
-import jwt from "jsonwebtoken";
-import { setCookie } from "$std/http/cookie.ts";
-
-import { RegisterForm } from "../components/RegisterForm.tsx";
 import { Videos } from "../components/Videos.tsx";
 import { userApi } from "../types.ts";
 import { VideoType } from "../types.ts";

@@ -33,7 +33,7 @@ export const handler: Handlers = {
     }
 
     const data = await response.json();
-    const JWT_SECRET = Deno.env.get("JWT_SECRET") || "patata";
+    const JWT_SECRET = Deno.env.get("JWT_SECRET")
     if (!JWT_SECRET) {
       throw new Error("No se ha encontrado la clave secreta");
     }
