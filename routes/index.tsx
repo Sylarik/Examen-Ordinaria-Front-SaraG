@@ -1,9 +1,11 @@
+import { Handlers } from "$fresh/server.ts";
 
-
-export default function Home() {
-  
-  return (
-    <>
-    </>
-  );
+export const handler:Handlers = {
+  GET: () => {
+    const headers = new Headers({location: "/login"})
+    return new Response ("", {
+      headers,
+      status:302
+    })
+  }
 }
